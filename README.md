@@ -37,3 +37,4 @@ Frontend : HTML, CSS, Bootstrap ou Tailwind
 Outil UML : PlantUML pour les diagrammes de cas d’utilisation
 
 Serveur local : Laravel Artisan (php artisan serve)
+
