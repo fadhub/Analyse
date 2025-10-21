@@ -8,12 +8,16 @@
 
     <style>
         :root {
-            --primary: #ffffff;
-            --accent: #0d6efd;
-            --text-light: #ffffff;
-            --text-dark: #111827;
-            --background-dark: #f8f9fa;
-            --background-light: #ffffff;
+            /* Purple / magenta themed palette inspired by the provided design */
+            --primary: #2b0b2f; /* deep purple base */
+            --accent-1: #9b31ff; /* magenta/purple highlight */
+            --accent-2: #ff6b9a; /* pink accent */
+            --glow: rgba(155,49,255,0.18);
+            --text-light: #f6f0ff;
+            --text-dark: #efe7ff;
+            --background-dark: #0b0710; /* very dark violet */
+            --background-mid: #16081a;
+            --background-light: #2b102b;
         }
 
         body {
@@ -23,24 +27,48 @@
         }
 
         .navbar {
-            background-color: var(--primary);
+            background: linear-gradient(180deg, rgba(27,6,27,0.9), transparent);
             padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
         }
 
-        .navbar-light .navbar-brand, .navbar-light .nav-link { color: var(--text-dark) !important; }
-        .navbar-light .nav-link:hover { color: var(--accent) !important; }
+        .navbar-brand { color: var(--accent-1) !important; font-weight:700; }
+        .nav-link { color: rgba(255,255,255,0.85) !important; }
+        .nav-link:hover { color: var(--accent-2) !important; }
 
         .hero-section {
-            min-height: 70vh;
-            background: var(--background-dark);
-            padding-top: 100px;
+            min-height: 80vh;
+            background: radial-gradient(1200px 400px at 75% 55%, rgba(155,49,255,0.12), transparent),
+                        linear-gradient(180deg, var(--background-mid), var(--background-dark));
+            padding-top: 120px;
             padding-bottom: 80px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-section h1 { font-size: 3.5rem; color: var(--text-dark); font-weight: 700; }
-        .hero-section h2 { color: var(--text-dark); margin-top: 0.5rem; font-weight: 500; }
-        .btn-primary { background-color: var(--accent); border-color: var(--accent); }
-        .btn-primary:hover { background-color: transparent; border-color: var(--accent); color: var(--accent); }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 40%;
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle at center, rgba(155,49,255,0.18), transparent 40%);
+            filter: blur(48px);
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .hero-section h1 { font-size: 4.5rem; color: var(--text-light); font-weight: 800; letter-spacing: -1px; }
+        .hero-section h2 { color: var(--accent-1); margin-top: 0.6rem; font-weight: 700; font-size: 2rem; }
+        /* CTA gradient button */
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            border: none;
+            color: var(--text-light);
+            box-shadow: 0 10px 30px var(--glow);
+        }
+        .btn-primary:hover { opacity: 0.95; transform: translateY(-2px); }
 
         @media (max-width: 768px) {
             .hero-section h1 { font-size: 2.5rem; }
