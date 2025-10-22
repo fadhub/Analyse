@@ -6,22 +6,19 @@ actor "Visiteur" as Visitor
 actor "Recruteur" as Recruiter
 Recruiter <|-- Visitor
 
-rectangle "Mini-site Portfolio Yasmine" {
+package "Portfolio Laravel" {
   usecase "Consulter\nAccueil" as UC_Home
-  usecase "Voir le profil\nÀ propos" as UC_About
+  usecase "Consulter\nÀ propos" as UC_About
   usecase "Consulter\nProjets" as UC_Projects
   usecase "Voir détails\nProjet" as UC_ProjectDetails
-  usecase "Consulter\nServices" as UC_Services
-  usecase "Envoyer\nMessage (Contact)" as UC_Contact
+  usecase "Voir les technologies utilisées" as UC_TechnologiesProjects
 }
 
 Visitor -- UC_Home
 Visitor -- UC_About
 Visitor -- UC_Projects
-Visitor -- UC_ProjectDetails
-Visitor -- UC_Services
-Visitor -- UC_Contact
 
-' Optionnel : relations de dépendance/extension
-UC_ProjectDetails .> UC_Projects : <>
+' Optional: relationships
+UC_Projects <.- UC_ProjectDetails : <<extend>>
+UC_ProjectDetails <.- UC_TechnologiesProjects : <<extend>>
 @enduml
