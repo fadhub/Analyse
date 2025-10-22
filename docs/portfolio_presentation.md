@@ -45,7 +45,7 @@ style: |
   img {
     display: block;
     margin: 2em auto;
-    max-height: 400px;
+    max-height: 460px;
     width: auto;
     object-fit: contain;
     border-radius: 10px;
@@ -97,4 +97,4 @@ style: |
 ---
 
 ## Conception : Maquette
-![Maquette](image/image4.png)
+![Maquette](image/portfolio.png)
