@@ -97,4 +97,4 @@ style: |
 ---
 
 ## Conception : Maquette
-![Maquette](image/image4.png)
+![Maquette](image/portfolio.png)
