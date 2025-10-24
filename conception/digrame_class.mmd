@@ -1,33 +1,19 @@
 classDiagram
-    direction LR
-
     class Developer {
-        +int id
-        +string first_name
-        +string last_name
+        +string name
         +string title
         +string bio
-        +string email
-        +string phone
-        +string profile_picture
+        +array socials
+        +array skills
     }
 
     class Project {
-        +int id
+        +string slug
         +string title
         +string description
-        +string image
-        +string github_link
-        +string demo_link
-        +date start_date
-        +date end_date
+        +string excerpt
+        +array images
+        +array tech
     }
 
-    class Technologies {
-        +int id
-        +string name
-    }
-
-    %% Relationships
-    Developer "1" --> "*" Project : has
-    Project "1" --> "*" Technologies : uses
+    Developer "1" -- "*" Project : develops
